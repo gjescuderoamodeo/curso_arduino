@@ -4,7 +4,8 @@
 //-constants
 //#define nombre_variable (mayusculas) valor | ejemplo: #define PI 3.14
 
-#define PIN_LED 2
+//#define PIN_LED 2
+#define PIN_LED 12
 int timesPassedLoop = 0;
 
 void setup() {
@@ -53,6 +54,19 @@ void loop() {
   digitalWrite(PIN_LED, HIGH);
   delay(2000); 
   digitalWrite(PIN_LED, LOW);
+  
+
+  delay(500);
+  digitalWrite(PIN_LED, HIGH);
+  delay(500);
+  digitalWrite(PIN_LED, LOW);
+  delay(500);  
+  digitalWrite(PIN_LED, HIGH);
+  delay(500); 
+  digitalWrite(PIN_LED, LOW);
+  delay(500);
+  digitalWrite(PIN_LED, HIGH);
+  delay(500); 
 
   //Serial.println("apagado.");
   timesPassedLoop++;
