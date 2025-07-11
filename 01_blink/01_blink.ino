@@ -9,7 +9,7 @@
 void setup() {
   //velocidad comunicación mandar datos
   Serial.begin(115200);
-  delay(40);// delay para que de tiempo se active el monitor serie, sino no se ve los prints
+  delay(100);// delay para que de tiempo se active el monitor serie, sino no se ve los prints
   Serial.println("Serial encencido");
 
   //definir si patilla entrada o de salida
