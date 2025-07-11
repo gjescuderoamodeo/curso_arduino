@@ -47,6 +47,7 @@ void loop() {
   digitalWrite(PIN_GREEN, LOW);
   delay(500); 
 
+  digitalWrite(PIN_LED, LOW);
   digitalWrite(PIN_GREEN, LOW);
   delay(2000);
   digitalWrite(PIN_GREEN, HIGH);
