@@ -5,6 +5,7 @@
 //#define nombre_variable (mayusculas) valor | ejemplo: #define PI 3.14
 
 #define PIN_LED 2
+int timesPassedLoop = 0;
 
 void setup() {
   //velocidad comunicación mandar datos
@@ -24,9 +25,10 @@ void loop() {
   HIGH=1
   LOW=0
   */
-  Serial.println("encencido.");
-
+ 
+  Serial.println("veces pasado por el loop = " + String(timesPassedLoop));  
   delay(3000); 
+  //Serial.println("encencido.");
   digitalWrite(PIN_LED, HIGH);
   delay(500);
   digitalWrite(PIN_LED, LOW);
@@ -52,8 +54,8 @@ void loop() {
   delay(2000); 
   digitalWrite(PIN_LED, LOW);
 
-  Serial.println("apagado.");
-
+  //Serial.println("apagado.");
+  timesPassedLoop++;
 
 
 
