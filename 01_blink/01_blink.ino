@@ -16,6 +16,7 @@ void setup() {
 
   //definir si patilla entrada o de salida
   pinMode(PIN_LED, OUTPUT);
+  pinMode(PIN_GREEN, OUTPUT);
 }
 
 void loop() {
@@ -46,31 +47,31 @@ void loop() {
   digitalWrite(PIN_GREEN, LOW);
   delay(500); 
 
-  digitalWrite(PIN_LED, LOW);
+  digitalWrite(PIN_GREEN, LOW);
   delay(2000);
-  digitalWrite(PIN_LED, HIGH);
+  digitalWrite(PIN_GREEN, HIGH);
   delay(2000); 
-  digitalWrite(PIN_LED, LOW);
+  digitalWrite(PIN_GREEN, LOW);
   delay(2000);
-  digitalWrite(PIN_LED, HIGH);
+  digitalWrite(PIN_GREEN, HIGH);
   delay(2000);   
-  digitalWrite(PIN_LED, LOW);
+  digitalWrite(PIN_GREEN, LOW);
   delay(2000);
-  digitalWrite(PIN_LED, HIGH);
+  digitalWrite(PIN_GREEN, HIGH);
   delay(2000); 
-  digitalWrite(PIN_LED, LOW);
+  digitalWrite(PIN_GREEN, LOW);
   
 
   delay(500);
-  digitalWrite(PIN_LED, HIGH);
+  digitalWrite(PIN_GREEN, HIGH);
   delay(500);
-  digitalWrite(PIN_LED, LOW);
+  digitalWrite(PIN_GREEN, LOW);
   delay(500);  
-  digitalWrite(PIN_LED, HIGH);
+  digitalWrite(PIN_GREEN, HIGH);
   delay(500); 
-  digitalWrite(PIN_LED, LOW);
+  digitalWrite(PIN_GREEN, LOW);
   delay(500);
-  digitalWrite(PIN_LED, HIGH);
+  digitalWrite(PIN_GREEN, HIGH);
   delay(500); 
 
   //Serial.println("apagado.");
