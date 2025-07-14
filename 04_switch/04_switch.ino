@@ -1,5 +1,5 @@
 int dia=3
-char * nombreDia = ""
+String nombreDia = ""
 
 void setup() {
   Serial.begin(115200)
