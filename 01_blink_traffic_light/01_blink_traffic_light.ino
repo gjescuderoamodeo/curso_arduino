@@ -22,7 +22,7 @@ void loop() {
   LOW=0
   */
  
-  Serial.println("Rojo encendio"); 
+  Serial.print("Rojo encendio \n"); 
   digitalWrite(PIN_RED, HIGH);
   digitalWrite(PIN_BLUE, LOW);
   digitalWrite(PIN_GREEN, LOW);
