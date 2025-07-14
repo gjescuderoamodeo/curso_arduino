@@ -1,7 +1,7 @@
 #define PIN_RED 4
 #define PIN_BLUE 13
 #define PIN_GREEN 12
-int timesPassedLoop = 0;
+String ledColor = "";
 
 void setup() {
   //velocidad comunicación mandar datos
@@ -22,21 +22,19 @@ void loop() {
   LOW=0
   */
  
-  Serial.println("veces pasado por el loop = " + String(timesPassedLoop)); 
+  Serial.println("Rojo encendio"); 
   digitalWrite(PIN_RED, HIGH);
   digitalWrite(PIN_BLUE, LOW);
   digitalWrite(PIN_GREEN, LOW);
   delay(500);
+  Serial.println("Azul encendio"); 
   digitalWrite(PIN_RED, LOW);
   digitalWrite(PIN_BLUE, HIGH);
   digitalWrite(PIN_GREEN, LOW);
   delay(500);  
+  Serial.println("Verde encendio"); 
   digitalWrite(PIN_RED, LOW);
   digitalWrite(PIN_BLUE, LOW);
   digitalWrite(PIN_GREEN, HIGH);
   delay(500); 
-  timesPassedLoop++;
-
-
-
 }
