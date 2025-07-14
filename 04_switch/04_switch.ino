@@ -1,0 +1,26 @@
+int dia=3
+char * nombreDia = ""
+
+void setup() {
+  Serial.begin(115200)
+
+  switch(dia){
+    case 1: nombreDia="lunes";
+      break;
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7: nombreDia="jueves";
+      break;  
+  }
+
+  Serial.println(nombreDia)
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
