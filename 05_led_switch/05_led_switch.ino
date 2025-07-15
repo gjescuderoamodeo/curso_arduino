@@ -5,6 +5,8 @@ int buttonValue = LOW;
 int state = LOW;
 
 void setup() {
+  Serial.begin(115200);
+
   pinMode(BUTTON, INPUT);
   pinMode(LED, OUTPUT);
 }
@@ -16,5 +18,6 @@ void loop() {
   }else{
     digitalWrite(LED, LOW);
   }
+  Serial.println(buttonValue);
   delay(100);
 }
