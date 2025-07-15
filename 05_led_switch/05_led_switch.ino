@@ -5,19 +5,25 @@ int buttonValue = LOW;
 int state = LOW;
 
 void setup() {
-  Serial.begin(115200);
-
   pinMode(BUTTON, INPUT);
   pinMode(LED, OUTPUT);
 }
 
 void loop() {
   buttonValue = digitalRead(BUTTON);
+  //if button press, change state
   if(buttonValue == LOW){
+    if(state==HIGH){
+      state=LOW;
+    }else {
+      state=HIGH;
+    }
+  }  
+
+  if(state == HIGH){
     digitalWrite(LED, HIGH);
   }else{
     digitalWrite(LED, LOW);
   }
-  Serial.println(buttonValue);
   delay(100);
 }
