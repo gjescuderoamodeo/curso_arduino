@@ -13,17 +13,9 @@ void loop() {
   buttonValue = digitalRead(BUTTON);
   //if button press, change state
   if(buttonValue == LOW){
-    if(state==HIGH){
-      state=LOW;
-    }else {
-      state=HIGH;
-    }
+    state=!state;
+    digitalWrite(LED, state);
   }  
 
-  if(state == HIGH){
-    digitalWrite(LED, HIGH);
-  }else{
-    digitalWrite(LED, LOW);
-  }
   delay(100);
 }
