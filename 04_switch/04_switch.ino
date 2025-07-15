@@ -1,22 +1,17 @@
-int dia=3
-String nombreDia = ""
+int dia=3;
+String nombreDia = "";
 
 void setup() {
-  Serial.begin(115200)
+  Serial.begin(115200);
 
   switch(dia){
     case 1: nombreDia="lunes";
       break;
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7: nombreDia="jueves";
+    case 2 ... 7: nombreDia="jueves";
       break;  
   }
 
-  Serial.println(nombreDia)
+  Serial.println(nombreDia);
 
 }
 
