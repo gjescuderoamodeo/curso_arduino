@@ -1,0 +1,17 @@
+#define LED 4
+
+void setup() {
+  //bucles controlados por contador
+  //for(inicio, fin, paso)
+  Serial.begin(115200);
+  pinMode(LED, OUTPUT);
+}
+
+void loop() {
+  for(int i=150 ; i>=0 ;i--){
+    digitalWrite(LED, HIGH);
+    delay(i);
+    digitalWrite(LED, LOW); 
+    delay(i);
+  }
+}
