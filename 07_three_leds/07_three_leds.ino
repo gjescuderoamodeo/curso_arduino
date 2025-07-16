@@ -9,21 +9,22 @@ void setup() {
 }
 
 void loop() {
+  //ROJO
   digitalWrite(LED_ROJO, LOW);
   digitalWrite(LED_VERDE, HIGH);
   digitalWrite(LED_AZUL, HIGH);
   delay(1000);
-
+  //AMARILLO
   digitalWrite(LED_ROJO, LOW);
   digitalWrite(LED_VERDE, LOW);
   digitalWrite(LED_AZUL, HIGH);
   delay(1000);
-
+  //VERDE
   digitalWrite(LED_ROJO, HIGH);
   digitalWrite(LED_VERDE, LOW);
   digitalWrite(LED_AZUL, HIGH);
   delay(1000);
-
+  //AZUL
   digitalWrite(LED_ROJO, HIGH);
   digitalWrite(LED_VERDE, HIGH);
   digitalWrite(LED_AZUL, LOW);
