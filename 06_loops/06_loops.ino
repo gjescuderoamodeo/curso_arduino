@@ -3,6 +3,8 @@
 void setup() {
   //bucles controlados por contador
   //for(inicio, fin, paso)
+  //bucles infinitos
+  //while
   Serial.begin(115200);
   pinMode(LED, OUTPUT);
 }
