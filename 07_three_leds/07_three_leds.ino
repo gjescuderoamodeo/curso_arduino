@@ -1,45 +1,26 @@
-#define LED 15
-#define LED2 12
-
-int power = 255;
-int power2 = 0;
+#define LED_ROJO 34
+#define LED_VERDE 32
+#define LED_AZUL 15
 
 void setup() {
-  pinMode(LED, OUTPUT);
-  pinMode(LED2, OUTPUT);
+  pinMode(LED_ROJO, OUTPUT);
+  pinMode(LED_VERDE, OUTPUT);
+  pinMode(LED_AZUL, OUTPUT);  
 }
 
 void loop() {
-  /*digitalWrite(LED, HIGH);  
-  delay(1000);
-  digitalWrite(LED, LOW);  
-  delay(1000);*/
-
-  /*analogWrite(LED, 20);
+  digitalWrite(LED_ROJO, HIGH);
+  digitalWrite(LED_VERDE, LOW);
+  digitalWrite(LED_AZUL, LOW);
   delay(500);
-  analogWrite(LED, 120);
-  delay(500);*/
 
-  do{
-    analogWrite(LED, power);
-    analogWrite(LED2, power2);    
-    delay(5); 
-    power--;
-    power2++;
-  }while(power!=0 && power2!=255);
+  digitalWrite(LED_ROJO, LOW);
+  digitalWrite(LED_VERDE, HIGH);
+  digitalWrite(LED_AZUL, LOW);
+  delay(500);  
 
-  delay(1000);
-
-  do{
-    power++;
-    power2--;    
-    analogWrite(LED, power);
-    analogWrite(LED2, power2);
-    delay(5); 
-  }while(power!=255 && power2!=0);
-
-  analogWrite(LED, 255);
-  analogWrite(LED2, 0);
-  delay(55);
-
+  digitalWrite(LED_ROJO, LOW);
+  digitalWrite(LED_VERDE, LOW);
+  digitalWrite(LED_AZUL, HIGH);
+  delay(500);
 }
