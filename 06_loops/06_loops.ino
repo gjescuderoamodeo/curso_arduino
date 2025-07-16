@@ -1,5 +1,5 @@
 #define LED 4
-
+//carpeta comp https://drive.google.com/drive/folders/1tm3B6GzcZ989xbgSoWEtjIHVgQmGomG9
 void setup() {
   //bucles controlados por contador
   //for(inicio, fin, paso)
