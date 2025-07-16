@@ -21,7 +21,7 @@ void loop() {
   temperature = dht.readTemperature();
   humidity = dht.readHumidity();
   digitalWrite(PIN, HIGH);
-  delay(300);
+  delay(100);
   digitalWrite(PIN, LOW);
 
   Serial.printf("Temperatura: %.3f Humedad: %.3f \n", temperature, humidity);
