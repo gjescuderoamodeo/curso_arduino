@@ -1,6 +1,6 @@
-#define LED_ROJO 13
+#define LED_ROJO 14
 #define LED_VERDE 12
-#define LED_AZUL 14
+#define LED_AZUL 13
 #define POTEN1 15
 #define POTEN2 4
 #define POTEN3 27
