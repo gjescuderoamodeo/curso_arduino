@@ -13,6 +13,7 @@ void setup() {
   pinMode(LED_ROJO, OUTPUT);
   pinMode(LED_VERDE, OUTPUT);
   pinMode(LED_AZUL, OUTPUT); 
+  //potenciometros
   pinMode(POTEN1, INPUT);
   pinMode(POTEN2, INPUT); 
   pinMode(POTEN3, INPUT); 
