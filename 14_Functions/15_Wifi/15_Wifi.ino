@@ -11,12 +11,16 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  Serial.println();
+  Serial.println("\n mi Ip local:");
   Serial.print(WiFi.localIP());
-
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int redes = WiFi.scanNetworks();
+  Serial.println(redes);
+
+  for(int i=0;i<redes;i++){
+    Serial.print(WiFi.RSSI(i));
+  }
 
 }
