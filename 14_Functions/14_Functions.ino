@@ -5,6 +5,7 @@ void setup() {
 
   Serial.println(String(sum(values)));
   Serial.println(String(longitudCadena(cadena)));
+  Serial.println(vueltaCadena(cadena));
 }
 
 void loop() {
@@ -29,4 +30,16 @@ int longitudCadena(String cadena){
       return longitud;
     }
   }
+}
+
+//funciondarle vuelta cadena
+String vueltaCadena(String cadena){
+  int longitud=longitudCadena(cadena);
+  String vuelta="";
+
+  for(int i=longitud-1;i>=0;i--){
+    vuelta+=cadena[i];
+  }
+
+  return vuelta;
 }
