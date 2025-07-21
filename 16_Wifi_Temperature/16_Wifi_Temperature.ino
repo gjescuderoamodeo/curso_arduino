@@ -57,6 +57,9 @@ void postData(float temperature, float readHumidity, String person){
     httpCode = http.POST(parametros);
     payload = http.getString();
 
-    Serial.printf(httpCode + " payload: " + payload);
+    Serial.print("code: ");
+    Serial.println(httpCode);
+    Serial.print("payload: ");
+    Serial.println(payload);
   }
 }
