@@ -11,7 +11,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("\n mi Ip local:");
+  Serial.println("\nmi Ip local:");
   Serial.print(WiFi.localIP());
 }
 
@@ -21,6 +21,10 @@ void loop() {
 
   for(int i=0;i<redes;i++){
     Serial.print(WiFi.RSSI(i));
+    Serial.print("\t");
+    Serial.print(WiFi.channel(i));
+    Serial.print("\t");
+    Serial.println(WiFi.SSID(i).c_str()); //Devuelve nombre red convertido a cadena
   }
 
 }
