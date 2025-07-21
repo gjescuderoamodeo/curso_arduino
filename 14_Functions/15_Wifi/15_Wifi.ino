@@ -11,7 +11,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("\nmi Ip local:");
+  Serial.println("\n mi Ip local:");
   Serial.print(WiFi.localIP());
 }
 
