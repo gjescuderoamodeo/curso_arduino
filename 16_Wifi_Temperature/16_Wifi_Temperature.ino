@@ -43,5 +43,11 @@ void loop() {
 
 //funciones
 void postData(float temperature, float readHumidity, String person){
-  String parametros = "temp="+ String(temperature) + "hum=" + String(humidity);
+  String parametros = "temp="+ 
+  String(temperature) + "&hum=" + 
+  String(humidity) + "&persona=" person;
+
+  if (WiFi.status() == WL_CONNECTED) {
+  statements
+  }
 }
