@@ -11,7 +11,7 @@ const String pwd = "Horus.2025";
 WiFiClient clientWifi;
 HTTPClient http;
 
-String servidor = "192.168.0.25:5000/datos";
+String servidor = "http://192.168.0.25:5000/datos";
 
 //temperature
 DHT dht(DHTPIN, DHTTYPE);
@@ -53,7 +53,7 @@ void postData(float temperature, float readHumidity, String person){
 
   if (WiFi.status() == WL_CONNECTED) {
     http.begin(clientWifi,servidor);
-    http.addHeader("Content-Type","application/x-www-form-urlencoded");
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
     httpCode = http.POST(parametros);
     payload = http.getString();
 
