@@ -40,3 +40,8 @@ void loop() {
   Serial.printf("Temperatura: %.3f Humedad: %.3f \n", temperature, humidity);
   delay(5000);
 }
+
+//funciones
+void postData(float temperature, float readHumidity, String person){
+  String parametros = "temp="+ String(temperature) + "hum=" + String(humidity);
+}
