@@ -1,15 +1,15 @@
 #include <WiFi.h>
 #include <DHT.h>
 #include <HTTPClient.h>
-#define DHTPIN 12
+#define DHTPIN 13
 #define DHTTYPE DHT22
 
 //Wifi
 const String ssid = "Aula 1";
 const String pwd = "Horus.2025";
 
-const WiFiClient clientWifi;
-const HTTPClient http;
+WiFiClient clientWifi;
+HTTPClient http;
 
 String servidor = "192.168.0.25:5000/datos";
 
@@ -37,19 +37,26 @@ void loop() {
   humidity = dht.readHumidity();
   delay(100);
 
+  if(temperature!=0.0){
+    postData(temperature,humidity,"GuillermoJ");
+  }
+
   Serial.printf("Temperatura: %.3f Humedad: %.3f \n", temperature, humidity);
-  delay(5000);
+  delay(10000);
 }
 
 //funciones
 void postData(float temperature, float readHumidity, String person){
-  String parametros = "temp="+ 
-  String(temperature) + "&hum=" + 
-  String(humidity) + "&persona=" person;
+  String parametros = "temp=" + String(temperature) + "&hum=" + String(humidity) + "&persona=" + person;
+  int httpCode;      
+  String payload;
 
   if (WiFi.status() == WL_CONNECTED) {
     http.begin(clientWifi,servidor);
-
     http.addHeader("Content-Type","application/x-www-form-urlencoded");
+    httpCode = http.POST(parametros);
+    payload = http.getString();
+
+    Serial.printf(httpCode + " payload: " + payload);
   }
 }
