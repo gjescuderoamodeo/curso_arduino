@@ -11,7 +11,7 @@ const String pwd = "Horus.2025";
 const WiFiClient clientWifi;
 const HTTPClient http;
 
-String servidor = ":5000/datos";
+String servidor = "192.168.0.25:5000/datos";
 
 //temperature
 DHT dht(DHTPIN, DHTTYPE);
