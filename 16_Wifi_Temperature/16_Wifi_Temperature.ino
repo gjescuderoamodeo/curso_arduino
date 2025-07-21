@@ -48,6 +48,8 @@ void postData(float temperature, float readHumidity, String person){
   String(humidity) + "&persona=" person;
 
   if (WiFi.status() == WL_CONNECTED) {
-  statements
+    http.begin(clientWifi,servidor);
+
+    http.addHeader("Content-Type","application/x-www-form-urlencoded");
   }
 }
