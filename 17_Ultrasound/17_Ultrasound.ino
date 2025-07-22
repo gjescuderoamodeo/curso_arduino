@@ -38,7 +38,7 @@ float getSonar(){
 
   //valor convertido
   ledValue = map(dist,0,350,0,255);
-  analogWrite(led, ledValue);
+  analogWrite(led, 255-ledValue);
 
   return dist;
 }
