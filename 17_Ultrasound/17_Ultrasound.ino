@@ -8,17 +8,15 @@ int velSound = 340;
 
 void setup() {
   Serial.begin(115200);
-  dht.begin();
   pinMode(trigger, OUTPUT);
   pinMode(echo, INPUT);
 
 }
 
 void loop() {
-
-
-  
-  delay(5000); 
+  distancia = getSonar();
+  Serial.println("Distancia: " + String(distancia));
+  delay(10000); 
 }
 
 float getSonar(){
@@ -31,7 +29,9 @@ float getSonar(){
 
   pingTime = pulseIn(echo, HIGH, timeOut);
 
-  Serial.println("Ping time: ");
+  Serial.println("Ping time: " + String(pingTime));
 
-  return;
+  dist = (float) pingTime * velSound / 2 / 10000;
+
+  return dist;
 }
