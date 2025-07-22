@@ -1,16 +1,19 @@
 #define echo 15
 #define trigger 13
 #define maxDist 700 //cm
+#define led 0
 
 float distancia = 0.0;
 float timeOut = maxDist * 60;
 int velSound = 340;
+int ledValue = 0;
+
 
 void setup() {
   Serial.begin(115200);
   pinMode(trigger, OUTPUT);
   pinMode(echo, INPUT);
-
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
@@ -32,6 +35,10 @@ float getSonar(){
   Serial.println("Ping time: " + String(pingTime));
 
   dist = (float) pingTime * velSound / 2 / 10000;
+
+  //valor convertido
+  ledValue = map(dist,0,350,0,255);
+  analogWrite(led, ledValue);
 
   return dist;
 }
