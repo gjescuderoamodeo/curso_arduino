@@ -45,6 +45,9 @@ void loop() {
   temperature = dht.readTemperature();
   humidity = dht.readHumidity();
   delay(100);
+
+  Serial.printf("Temperatura: %.3f Humedad: %.3f \n", temperature, humidity);
+  delay(10000);
 }
 
 //funciones de respuesta a las páginas web
