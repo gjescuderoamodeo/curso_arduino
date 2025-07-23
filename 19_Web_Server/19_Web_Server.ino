@@ -16,7 +16,7 @@ float temperature = 0.0;
 float humidity = 0.0;
 
 //páginas
-String home = "<!DOCTYPE html><html lang=\"es\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Curso Arduino</title></head><style>body{background-color:#000;color:#adff2f;text-align:center;font-style:italic;font-family:Verdana,Geneva,Tahoma,sans-serif}table{display:inline}td{width:1%;height:50px;background-color:#ff4500}button{width:15%;background-color:#ff4500}a{color:#adff2f}</style><body><h1>Curso Arduino</h1><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr></table><button><a onclick=\"event.preventDefault()\" href=\"/led_change\">Encender</a></button><br><button><a onclick=\"event.preventDefault()\" href=\"/led_change\">Apagar</a></button></body></html>";
+String home = "<!DOCTYPE html><html lang=\"es\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Curso Arduino</title><style>body{background:#000;color:#adff2f;text-align:center;font-style:italic;font-family:Verdana,Geneva,Tahoma,sans-serif}table{display:inline}td{width:1%;height:50px;background:#ff4500}button{width:20%;height:40px;background:#ff4500;margin-top:20px}a{color:#adff2f}</style><body><h1>Curso Arduino</h1><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr></table><button><a onclick=\"event.preventDefault()\" href=\"/led_change\">Cambiar estado LED</a></button><h3>Temperatura actual: ##temperature##</h3></body></html>";
 void setup() {
   Serial.begin(115200);
   pinMode(PIN_LED, OUTPUT);
@@ -46,8 +46,10 @@ void loop() {
   humidity = dht.readHumidity();
   delay(100);
 
+
+  home.replace("##temperature##", String(temperature));
   Serial.printf("Temperatura: %.3f Humedad: %.3f \n", temperature, humidity);
-  delay(10000);
+  delay(100);
 }
 
 //funciones de respuesta a las páginas web
