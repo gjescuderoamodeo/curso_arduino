@@ -49,7 +49,7 @@ void loop() {
 
   home.replace("##temperature##", String(temperature));
   Serial.printf("Temperatura: %.3f Humedad: %.3f \n", temperature, humidity);
-  delay(100);
+  delay(5000);
 }
 
 //funciones de respuesta a las páginas web
