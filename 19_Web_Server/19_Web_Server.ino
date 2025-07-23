@@ -3,6 +3,7 @@
 #include <DHT.h>
 
 #define PIN_LED 2
+#define DHTPIN 15
 #define DHTTYPE DHT22
 
 const String ssid = "Aula 1";
