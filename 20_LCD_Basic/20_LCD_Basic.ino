@@ -29,9 +29,16 @@ void setup() {
 }
 
 void loop() {
-  lcd.display();
+  /*lcd.display();
   delay(500);
   lcd.noDisplay();
-  delay(500);
+  delay(500);*/
+
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Temp: 12.34º");
+  lcd.setCursor(0, 1);
+  lcd.print("Hum 45%");
+  delay(5000);
 }  
 
