@@ -6,6 +6,8 @@
 #define ADDR 0x3F
 
 void setup() {
+  Serial.begin(115200);
+
   Wire.begin(SDA,SCL);
   for(byte i = 0; i<120; i++){
     Wire.beginTransmission(i);
