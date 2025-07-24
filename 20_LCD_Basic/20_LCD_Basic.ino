@@ -8,6 +8,17 @@
 //handler
 LiquidCrystal_I2C lcd(ADDR,16,2);
 
+byte corazon[] = {
+  B00000,
+  B01010,
+  B11111,
+  B11111,
+  B01110,
+  B00100,
+  B00000,
+  B00000
+};
+
 void setup() {
   Wire.begin(SDA,SCL);
   //Wire.beginTransmission(ADDR);
@@ -35,10 +46,17 @@ void loop() {
   delay(500);*/
 
   lcd.clear();
+
+  lcd.begin(16, 2);
+  lcd.createChar(15, corazon);  // Crear el símbolo
+  
+  lcd.setCursor(0, 0);
+  lcd.write(byte(0));
+
   lcd.setCursor(0,0);
-  lcd.print("Temp: 12.34º");
+  lcd.print("Temp: 12.34 337C");
   lcd.setCursor(0, 1);
-  lcd.print("Hum 45%");
+  lcd.print("Hum: 45%");
   delay(5000);
 }  
 
