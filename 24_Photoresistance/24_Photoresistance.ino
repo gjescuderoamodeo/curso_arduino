@@ -31,7 +31,7 @@ void loop() {
 
   lcd.setCursor(0,0);
   lcd.print("resistence value");
-  lcd.setCursor(0,1);
+  lcd.setCursor(6,1);
   lcd.print(resValue);
   delay(3000);
 }  
