@@ -23,13 +23,16 @@ void setup() {
 
 void loop() {
   lcd.clear();
+  //0-4096
   resValue=analogRead(RESISTANCE);
 
   //valor convertido
   ledValue = map(resValue,0,4096,0,255);
 
   lcd.setCursor(0,0);
-  lcd.print("valor res:" + String(resValue));
+  lcd.print("resistence value");
+  lcd.setCursor(0,1);
+  lcd.print(resValue);
   delay(3000);
 }  
 
