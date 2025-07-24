@@ -11,19 +11,19 @@ void setup() {
     Wire.beginTransmission(i);
     if(Wire.endTransmission()==0){
       Serial.print("Direccion encontrada: ");
-      Serial.print(i, DEC);
+      //Serial.print(i, DEC);
       Serial.print(" 0x");
       Serial.print(i, HEX);
-      count++;
+      //count++;
       delay(10);
     }
   }
-  Serial.print("\n");
-  Serial.println("Encontrados " + String(count));
+  //Serial.print("\n");
+  //Serial.println("Encontrados " + String(count));
 }
 
 void loop() {
-  
+
 }  
 
 
