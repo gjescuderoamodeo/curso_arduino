@@ -7,6 +7,7 @@
 
 void setup() {
   Serial.begin(115200);
+  delay(1000);
 
   Wire.begin(SDA,SCL);
   for(byte i = 0; i<120; i++){
