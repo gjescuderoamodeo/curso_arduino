@@ -3,7 +3,7 @@
 #include <DHT.h>
 
 #define DHTPIN 18
-#define DHTTYPE DHT22
+#define DHTTYPE DHT11
 
 #define SCL 15
 #define SDA 13
@@ -37,9 +37,9 @@ void loop() {
 
   lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print("Temperatura: " + String(temperature));
+  lcd.print("Temperatura:" + String(temperature));
   lcd.setCursor(0,1);
-  lcd.print("Humedad: " + String(humidity));
+  lcd.print("Humedad:" + String(humidity));
   delay(5000);
 
 
