@@ -47,16 +47,17 @@ void loop() {
 
   lcd.clear();
 
-  lcd.begin(16, 2);
-  lcd.createChar(25, corazon);
-  for(int i=0;i<16;i++){
-    lcd.setCursor(0, i);
-    lcd.write(byte(0));
-  }
+  lcd.createChar(0, corazon);
+  lcd.setCursor(0, 1);
+  lcd.write(byte(0));
+  lcd.setCursor(2, 1);
+  lcd.write(byte(0));
+  lcd.setCursor(4, 1);
+  lcd.write(byte(0));
   
 
-  //lcd.setCursor(0,0);
-  //lcd.print("GOOD NIGHT GIGI!");
+  lcd.setCursor(0,0);
+  lcd.print("GOOD NIGHT GIGI!");
   delay(5000);
 }  
 
