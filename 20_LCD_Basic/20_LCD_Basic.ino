@@ -48,15 +48,15 @@ void loop() {
   lcd.clear();
 
   lcd.begin(16, 2);
-  lcd.createChar(15, corazon);  // Crear el símbolo
+  lcd.createChar(25, corazon);
+  for(int i=0;i<16;i++){
+    lcd.setCursor(0, i);
+    lcd.write(byte(0));
+  }
   
-  lcd.setCursor(0, 0);
-  lcd.write(byte(0));
 
-  lcd.setCursor(0,0);
-  lcd.print("Temp: 12.34 337C");
-  lcd.setCursor(0, 1);
-  lcd.print("Hum: 45%");
+  //lcd.setCursor(0,0);
+  //lcd.print("GOOD NIGHT GIGI!");
   delay(5000);
 }  
 
