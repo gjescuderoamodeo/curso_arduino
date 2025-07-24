@@ -29,12 +29,13 @@ void setup() {
 }
 
 void loop() {
+
   
-  lcd.clear();
   temperature = dht.readTemperature();
   humidity = dht.readHumidity();
   delay(100);
 
+  lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("Temperatura: " + String(temperature));
   lcd.setCursor(0,1);
