@@ -22,24 +22,17 @@ void setup() {
 
 void loop() {
   //pedir introduzca código
-  if(Serial.available()){
-    serialBT.write(Serial.read());
-    
-    //read from bluetooth
-    if(serialBT.available()){
-      Serial.write(serialBT.read());
-    }
-
-    entrada = Serial.readStringUntil('\n');
+  if(serialBT.available()){
+    entrada = serialBT.readStringUntil('\n');
     entrada.trim();
     if(entrada==secreto){
-      Serial.println("Clave correcta");
+      serialBT.println("Clave correcta");
       miServo.write(90);
       delay(5000);
-      Serial.println("Puerta cerrada");
+      serialBT.println("Puerta cerrada");
       miServo.write(0);
     }else{
-      Serial.println("Clave NO CORRECTA");
+      serialBT.println("Clave NO CORRECTA");
     }
   }
 }
