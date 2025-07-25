@@ -4,11 +4,12 @@
 //handler
 Servo miServo;
 void setup() {
-  miServo.setPeriodHertz(50);
+  miServo.setPeriodHertz(80);
   miServo.attach(PIN_SERVO,500,2500);
 }
 
 void loop() {
+ /*
   //pá lante
   for(int i=0;i<300;i++){
     miServo.write(i);
@@ -24,4 +25,12 @@ void loop() {
   }
 
   delay(200);
+  */
+
+//pá lante
+  for(int i=0;i<300;i+=45){
+    miServo.write(i);
+    delay(100);
+  }
+
 }
