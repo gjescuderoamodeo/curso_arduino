@@ -10,16 +10,18 @@ void setup() {
 
 void loop() {
   //pá lante
-  for(int i=0;i<180;i++){
+  for(int i=0;i<300;i++){
     miServo.write(i);
-    delay(100);
+    delay(20);
   }
 
   delay(200);
 
   //pá tras
-  for(int i=180;i>0;i--){
-    miServo.Write(i);
-    delay(100);
+  for(int i=300;i>0;i--){
+    miServo.write(i);
+    delay(20);
   }
+
+  delay(200);
 }
