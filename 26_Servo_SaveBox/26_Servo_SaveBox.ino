@@ -17,7 +17,7 @@ void setup() {
 void loop() {
   //pedir imtroduzca código
   if(Serial.available()>0){
-    entrada = Serial.readStringUntil("\n");
+    entrada = Serial.readStringUntil('\n');
     entrada.trim();
     if(entrada==secreto){
       Serial.println("Clave correcta");
