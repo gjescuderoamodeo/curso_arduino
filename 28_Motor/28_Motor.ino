@@ -11,19 +11,24 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(INPUT_1_VELOCITY, HIGH); //Encender motor
+  //digitalWrite(INPUT_1_VELOCITY, HIGH); //Encender motor
+  Serial.println("Girando R");
+  analogWrite(INPUT_1_VELOCITY, 90);
   digitalWrite(INPUT_2, 0);
   digitalWrite(ENABLE_1, 1);
+  delay(2000);
 
-  delay(1000);
-
+  Serial.println("Paraó");
   digitalWrite(INPUT_1_VELOCITY, LOW); //Apagar motor
   delay(2000);
 
-  digitalWrite(INPUT_1_VELOCITY, HIGH); //Encender motor
+  Serial.println("Girando L");
+  //digitalWrite(INPUT_1_VELOCITY, HIGH); //Encender motor
+  analogWrite(INPUT_1_VELOCITY, 100);
   digitalWrite(INPUT_2, 1);
   digitalWrite(ENABLE_1, 0); 
-
+  delay(2000);
+  
   digitalWrite(INPUT_1_VELOCITY, LOW); //Apagar motor
   delay(2000); 
 }
