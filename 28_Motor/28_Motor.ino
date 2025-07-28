@@ -25,9 +25,13 @@ void setup() {
 
 void loop() {
   cambioEstado(DERECHA);
+  delay(2000);
   cambioEstado(PARO);
+  delay(2000);
   cambioEstado(IZQUIERDA);
+  delay(2000);
   cambioEstado(PARO);
+  delay(2000);
 }
 
 void cambioEstado(int estadoNuevo){
@@ -53,13 +57,14 @@ void derecha(){
   delay(2000);
   digitalWrite(LED_ROJO, LOW);
   digitalWrite(LED_VERDE, HIGH);
-  digitalWrite(LED_AZUL, HIGH);
+  digitalWrite(LED_AZUL, LOW);
 }
 
 void parar(){
   Serial.println("Paraó");
   //analogWrite(VELOCITY, 0);
   digitalWrite(VELOCITY, LOW); //Apagar motor
+
   digitalWrite(LED_ROJO, LOW);
   digitalWrite(LED_VERDE, LOW);
   digitalWrite(LED_AZUL, HIGH);  
@@ -74,6 +79,6 @@ void izquierda(){
   digitalWrite(DIRPIN_2, 0); 
   digitalWrite(LED_ROJO, HIGH);
   digitalWrite(LED_VERDE, LOW);
-  digitalWrite(LED_AZUL, HIGH);  
+  digitalWrite(LED_AZUL, LOW);  
   delay(2000);
 }
