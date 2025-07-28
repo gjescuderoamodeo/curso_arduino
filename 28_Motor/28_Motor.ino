@@ -7,8 +7,8 @@
 #define LED_AZUL 5
 
 #define DERECHA 1
-#define IZQUIERDA 1
-#define PARO 1
+#define IZQUIERDA 2
+#define PARO 3
 
 
 void setup() {
