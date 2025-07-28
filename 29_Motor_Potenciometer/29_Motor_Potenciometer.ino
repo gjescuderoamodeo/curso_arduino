@@ -21,7 +21,7 @@ void loop() {
 
   //0-4096
   potValue=analogRead(POTEN);
-  valorVel = map(potValue,0,4096,70,500);
+  valorVel = map(potValue,0,4096,90,500);
 
   digitalWrite(VELOCITY, HIGH); //Encender motor
   analogWrite(VELOCITY, valorVel);
