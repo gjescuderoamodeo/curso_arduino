@@ -6,6 +6,11 @@
 #define LED_VERDE 18
 #define LED_AZUL 5
 
+#define DERECHA 1
+#define IZQUIERDA 1
+#define PARO 1
+
+
 void setup() {
   Serial.begin(115200);
 
@@ -19,6 +24,27 @@ void setup() {
 }
 
 void loop() {
+  cambioEstado(DERECHA);
+  cambioEstado(PARO);
+  cambioEstado(IZQUIERDA);
+  cambioEstado(PARO);
+}
+
+void cambioEstado(int estadoNuevo){
+  switch(estadoNuevo){
+    case DERECHA:
+      derecha();
+      break;
+    case IZQUIERDA:
+      izquierda();
+      break;
+    case PARO:
+      parar();
+      break; 
+  }
+}
+
+void derecha(){
   digitalWrite(VELOCITY, HIGH); //Encender motor
   Serial.println("Girando R");
   //analogWrite(VELOCITY, 200);
@@ -28,7 +54,9 @@ void loop() {
   digitalWrite(LED_ROJO, LOW);
   digitalWrite(LED_VERDE, HIGH);
   digitalWrite(LED_AZUL, HIGH);
+}
 
+void parar(){
   Serial.println("Paraó");
   //analogWrite(VELOCITY, 0);
   digitalWrite(VELOCITY, LOW); //Apagar motor
@@ -36,7 +64,9 @@ void loop() {
   digitalWrite(LED_VERDE, LOW);
   digitalWrite(LED_AZUL, HIGH);  
   delay(2000);
+}
 
+void izquierda(){
   Serial.println("Girando L");
   digitalWrite(VELOCITY, HIGH); //Encender motor
   //analogWrite(VELOCITY, 150);
@@ -46,12 +76,4 @@ void loop() {
   digitalWrite(LED_VERDE, LOW);
   digitalWrite(LED_AZUL, HIGH);  
   delay(2000);
-
-  Serial.println("Paraó");
-  //analogWrite(VELOCITY, 0);
-  digitalWrite(LED_ROJO, LOW);
-  digitalWrite(LED_VERDE, LOW);
-  digitalWrite(LED_AZUL, HIGH);    
-  digitalWrite(VELOCITY, LOW); //Apagar motor
-  delay(2000); 
 }
