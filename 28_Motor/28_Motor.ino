@@ -15,8 +15,15 @@ void loop() {
   digitalWrite(INPUT_2, 0);
   digitalWrite(ENABLE_1, 1);
 
-  delay(5000);
+  delay(1000);
 
   digitalWrite(INPUT_1_VELOCITY, LOW); //Apagar motor
   delay(2000);
+
+  digitalWrite(INPUT_1_VELOCITY, HIGH); //Encender motor
+  digitalWrite(INPUT_2, 1);
+  digitalWrite(ENABLE_1, 0); 
+
+  digitalWrite(INPUT_1_VELOCITY, LOW); //Apagar motor
+  delay(2000); 
 }
