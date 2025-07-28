@@ -84,7 +84,7 @@ void parar(){
   Serial.println("Parado");
   lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print("Paraó");
+  lcd.print("Parado");
   //analogWrite(VELOCITY, 0);
   digitalWrite(VELOCITY, LOW); //Apagar motor
 
