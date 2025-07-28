@@ -1,11 +1,7 @@
 #define VELOCITY 27
 #define DIRPIN_1 13
 #define DIRPIN_2 15
-#define POTEN 15
-
-#define DERECHA 1
-#define IZQUIERDA 2
-#define PARO 3
+#define POTEN 4
 
 int potValue = 0;
 
@@ -21,10 +17,16 @@ void setup() {
 }
 
 void loop() {
-  int r = 0;
-  
+  int valorVel = 0;
+
   //0-4096
   potValue=analogRead(POTEN);
-  r = map(potValue,0,4096,0,255);
-  analogWrite(VELOCITY, r);
+  valorVel = map(potValue,0,4096,80,500);
+
+  digitalWrite(VELOCITY, HIGH); //Encender motor
+  analogWrite(VELOCITY, valorVel);
+  digitalWrite(DIRPIN_1, 0);
+  digitalWrite(DIRPIN_2, 1);
+
+  Serial.println(valorVel);
 }
