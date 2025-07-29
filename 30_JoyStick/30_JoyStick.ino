@@ -4,8 +4,8 @@
 
 //leds
 #define LED_UP 34
-#define LED_DOWN 19
-#define LED_RIGHT 5
+#define LED_DOWN 5
+#define LED_RIGHT 19
 #define LED_LEFT 15
 
 int cero_x=1892;
@@ -31,28 +31,28 @@ void loop() {
 
   Serial.println("Value X: " + String(value_x) + " Value Y: " + String(value_y) + " Value Z: " + String(value_z));
   
-  if(value_x-cero_x>10){ //DERECHA
+  if(value_x-cero_x>15){ //DERECHA
     Serial.println("DERECHA: " + String(value_x-cero_x));
     cambioEstado(1);
   }
 
-  if(value_x-cero_x<-10){ //IZQUIERDA
+  if(value_x-cero_x<-15){ //IZQUIERDA
     Serial.println("IZQUIERDA: " + String(value_x-cero_x));
     cambioEstado(2);
   }
 
-  if(value_y-cero_y>10){ //ABAJO
+  if(value_y-cero_y>30){ //ABAJO
     Serial.println("ABAJO: " + String(value_y-cero_y));
     cambioEstado(4);
   }
 
-  if(value_y-cero_y<-10){ //ARRIBA
+  if(value_y-cero_y<-15){ //ARRIBA
     Serial.println("ARRIBA: " + String(value_y-cero_y));
     cambioEstado(3);
   }
 
 
-  delay(5000); 
+  //delay(5000); 
 }
 
 void cambioEstado(int estadoNuevo){
@@ -70,8 +70,7 @@ void cambioEstado(int estadoNuevo){
       abajo();
       break;
     default:
-      neutro();
-      break;         
+      neutro();   
   }
 }
 
