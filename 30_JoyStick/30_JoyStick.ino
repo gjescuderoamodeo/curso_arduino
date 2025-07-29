@@ -51,7 +51,7 @@ void loop() {
     cambioEstado(3);
   }
 
-  if(value_y-cero_y<=20 || value_y-cero_y>=-20){ //NEUTRO
+  if(value_x>=1885 && value_y>=2585 && value_x>=1895 && value_y>=2600){ //NEUTRO
     Serial.println("NEUTRO: " + String(value_y-cero_y));
     cambioEstado(5);
   }
@@ -64,18 +64,22 @@ void cambioEstado(int estadoNuevo){
   switch(estadoNuevo){
     case 1:
       derecha();
+      delay(100);
       break;
     case 2:
       izquierda();
+      delay(100);
       break;
     case 3:
       arriba();
+      delay(100);
       break; 
     case 4:
       abajo();
+      delay(100);
       break;
     case 5:
-      neutro();   
+      neutro();  
   }
 }
 
