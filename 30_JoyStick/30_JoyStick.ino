@@ -2,6 +2,12 @@
 #define VRY 0
 #define SW 13
 
+//leds
+#define LED_UP 34
+#define LED_DOWN 19
+#define LED_RIGHT 5
+#define LED_LEFT 15
+
 int cero_x=1892;
 int cero_y=2590;
 
@@ -11,6 +17,11 @@ void setup() {
   pinMode(VRY, INPUT);
   pinMode(SW, INPUT_PULLUP); 
 
+  //LEDS
+  pinMode(LED_UP, OUTPUT);
+  pinMode(LED_DOWN, OUTPUT);
+  pinMode(LED_RIGHT, OUTPUT);  
+  pinMode(LED_LEFT, OUTPUT); 
 }
 
 void loop() {
@@ -22,20 +33,79 @@ void loop() {
   
   if(value_x-cero_x>10){ //DERECHA
     Serial.println("DERECHA: " + String(value_x-cero_x));
+    cambioEstado(1);
   }
 
   if(value_x-cero_x<-10){ //IZQUIERDA
     Serial.println("IZQUIERDA: " + String(value_x-cero_x));
+    cambioEstado(2);
   }
 
   if(value_y-cero_y>10){ //ABAJO
     Serial.println("ABAJO: " + String(value_y-cero_y));
+    cambioEstado(4);
   }
 
   if(value_y-cero_y<-10){ //ARRIBA
     Serial.println("ARRIBA: " + String(value_y-cero_y));
+    cambioEstado(3);
   }
 
 
   delay(5000); 
+}
+
+void cambioEstado(int estadoNuevo){
+  switch(estadoNuevo){
+    case 1:
+      derecha();
+      break;
+    case 2:
+      izquierda();
+      break;
+    case 3:
+      arriba();
+      break; 
+    case 4:
+      abajo();
+      break;
+    default:
+      neutro();
+      break;         
+  }
+}
+
+void derecha(){
+  digitalWrite(LED_DOWN, LOW);
+  digitalWrite(LED_LEFT, LOW);
+  digitalWrite(LED_UP, LOW); 
+  digitalWrite(LED_RIGHT, HIGH);
+}
+
+void arriba(){
+  digitalWrite(LED_DOWN, LOW);
+  digitalWrite(LED_LEFT, LOW);
+  digitalWrite(LED_UP, HIGH); 
+  digitalWrite(LED_RIGHT, LOW);
+}
+
+void neutro(){
+  digitalWrite(LED_DOWN, LOW);
+  digitalWrite(LED_LEFT, LOW);
+  digitalWrite(LED_UP, LOW); 
+  digitalWrite(LED_RIGHT, LOW);
+}
+
+void abajo(){
+  digitalWrite(LED_DOWN, HIGH);
+  digitalWrite(LED_LEFT, LOW);
+  digitalWrite(LED_UP, LOW); 
+  digitalWrite(LED_RIGHT, LOW);
+}
+
+void izquierda(){
+  digitalWrite(LED_DOWN, LOW);
+  digitalWrite(LED_LEFT, HIGH);
+  digitalWrite(LED_UP, LOW); 
+  digitalWrite(LED_RIGHT, LOW);
 }
