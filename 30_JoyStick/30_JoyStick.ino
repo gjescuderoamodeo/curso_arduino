@@ -56,6 +56,11 @@ void loop() {
     cambioEstado(5);
   }
 
+  if(!value_z){ //Boton central
+    Serial.println("ALL");
+    cambioEstado(6);
+  }
+
 
   //delay(5000); 
 }
@@ -79,7 +84,11 @@ void cambioEstado(int estadoNuevo){
       delay(100);
       break;
     case 5:
-      neutro();  
+      neutro(); 
+      break;
+    case 6:
+      todos();
+      break;   
   }
 }
 
@@ -116,4 +125,11 @@ void izquierda(){
   digitalWrite(LED_LEFT, HIGH);
   digitalWrite(LED_UP, LOW); 
   digitalWrite(LED_RIGHT, LOW);
+}
+
+void todos(){
+  digitalWrite(LED_DOWN, HIGH);
+  digitalWrite(LED_LEFT, HIGH);
+  digitalWrite(LED_UP, HIGH); 
+  digitalWrite(LED_RIGHT, HIGH);
 }
