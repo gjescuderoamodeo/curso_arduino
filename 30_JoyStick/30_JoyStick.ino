@@ -3,7 +3,7 @@
 #define SW 13
 
 //leds
-#define LED_UP 34
+#define LED_UP 12
 #define LED_DOWN 5
 #define LED_RIGHT 19
 #define LED_LEFT 15
@@ -31,12 +31,12 @@ void loop() {
 
   Serial.println("Value X: " + String(value_x) + " Value Y: " + String(value_y) + " Value Z: " + String(value_z));
   
-  if(value_x-cero_x>15){ //DERECHA
+  if(value_x-cero_x>20){ //DERECHA
     Serial.println("DERECHA: " + String(value_x-cero_x));
     cambioEstado(1);
   }
 
-  if(value_x-cero_x<-15){ //IZQUIERDA
+  if(value_x-cero_x<-20){ //IZQUIERDA
     Serial.println("IZQUIERDA: " + String(value_x-cero_x));
     cambioEstado(2);
   }
@@ -46,12 +46,12 @@ void loop() {
     cambioEstado(4);
   }
 
-  if(value_y-cero_y<-15){ //ARRIBA
+  if(value_y-cero_y<-20){ //ARRIBA
     Serial.println("ARRIBA: " + String(value_y-cero_y));
     cambioEstado(3);
   }
 
-  if(cero_x==1892 && cero_y==2590){ //NEUTRO
+  if(value_y-cero_y<=20 || value_y-cero_y>=-20){ //NEUTRO
     Serial.println("NEUTRO: " + String(value_y-cero_y));
     cambioEstado(5);
   }
