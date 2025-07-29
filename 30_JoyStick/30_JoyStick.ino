@@ -46,7 +46,7 @@ void loop() {
     cambioEstado(4);
   }
 
-  if(value_y-cero_y<-30){ //ARRIBA
+  if(value_y-cero_y<-40){ //ARRIBA
     Serial.println("ARRIBA: " + String(value_y-cero_y));
     cambioEstado(3);
   }
