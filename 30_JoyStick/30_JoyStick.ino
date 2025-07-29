@@ -15,7 +15,7 @@ void loop() {
   int value_y=analogRead(VRY);
   int value_z=digitalRead(SW);
 
-  Serial.println("Value X: " + String(value_x) + "Value Y: " + String(value_y) + "Value Z: " + String(value_z));
+  Serial.println("Value X: " + String(value_x) + " Value Y: " + String(value_y) + " Value Z: " + String(value_z));
   
   delay(5000); 
 }
