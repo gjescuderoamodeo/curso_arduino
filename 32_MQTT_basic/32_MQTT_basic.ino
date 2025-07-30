@@ -16,9 +16,9 @@ PubSubClient client(espClient);
 char* mqtt_server = "192.168.0.25";
 int mqtt_port = 1883;
 
-String mqtt_topic_sub="curso_arduino/#";
-String mqtt_topic_pub="curso_arduino/guillermo";
-String mqtt_client_id=" ESP_PEPE";
+char* mqtt_topic_sub="curso_arduino/#";
+char* mqtt_topic_pub="curso_arduino/guillermo";
+char* mqtt_client_id=" ESP_PEPE";
 
 static unsigned long lastMsg = 0;
 
@@ -74,14 +74,14 @@ void callback(String topic, byte* payload, unsigned int length){
   for(int i=0; i<length; i++){
     Serial.print((String)payload[i]);
   }
-  Serial.print();
+  Serial.print("");
 }
 
 void reconnect(){
   while(!client.connected()){
     Serial.println("Reconectando...");
     if(client.connect(mqtt_client_id)){
-      Serial.prinlnt("Conectado a MQTT");
+      Serial.println("Conectado a MQTT");
       client.subscribe(mqtt_topic_sub);
     }else{
       Serial.println("Fallo en la conexión");
