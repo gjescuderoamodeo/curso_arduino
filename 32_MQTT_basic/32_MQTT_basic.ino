@@ -66,9 +66,14 @@ void callback(String topic, byte* payload, unsigned int length){
 
 void reconnect(){
   while(!client.connected()){
-    
-    if(){
-
+    Serial.println("Reconectando...");
+    if(client.connect(mqtt_client_id)){
+      Serial.prinlnt("Conectado a MQTT");
+      client.suscribe(mqtt_topic_sub);
+    }else{
+      Serial.println("Fallo en la conexión");
+      Serial.println("Error: " + client.state());
+      delay(5000);
     }
   }
 }
