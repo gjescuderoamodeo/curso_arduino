@@ -32,6 +32,7 @@ String servidor = "http://192.168.0.56:5000/datos";
 
 void setup() {
   Serial.begin(115200);
+  //conexión Wifi
   WiFi.begin(ssid, pwd);
 
   while (WiFi.status() != WL_CONNECTED) {
@@ -40,9 +41,34 @@ void setup() {
   }
   Serial.println("\n mi Ip local:");
   Serial.print(WiFi.localIP());
+
+  //MQTT
+  client.setServer(mqtt_server,mqtt_port);
+  client.setCallback(callback());
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
+}
+
+//funciones
+void callback(String topic, byte* payload, unsigned int length){
+  Serial.print("Mensaje recibido en [");
+  Serial.print(topic);
+  Serial.print("]:");
+
+  for(int i=0; i<length; i++){
+    Serial.print((String)payload[i]);
+  }
+  Serial.print();
+}
+
+void reconnect(){
+  while(!client.connected()){
+    
+    if(){
+
+    }
+  }
 }
