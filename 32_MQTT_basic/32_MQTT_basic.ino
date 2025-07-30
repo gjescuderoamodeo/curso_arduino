@@ -9,6 +9,17 @@ http://192.168.0.25:18083/
 #include <HTTPClient.h>
 #include <PubSubClient.h>
 
+//MQQT
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+String mqtt_server = "192.168.0.25";
+int mqtt_port = 1883;
+
+String mqtt_topic_sub="curso_arduino/#";
+String mqtt_topic_pub="curso_arduino/guillermo";
+String mqtt_client_id=" ESP_";
+
 //Wifi
 const String ssid = "Aula 1";
 const String pwd = "Horus.2025";
@@ -29,9 +40,6 @@ void setup() {
   }
   Serial.println("\n mi Ip local:");
   Serial.print(WiFi.localIP());
-
-  dht.begin();
-
 }
 
 void loop() {
