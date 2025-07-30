@@ -13,12 +13,14 @@ http://192.168.0.25:18083/
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-String mqtt_server = "192.168.0.25";
+char* mqtt_server = "192.168.0.25";
 int mqtt_port = 1883;
 
 String mqtt_topic_sub="curso_arduino/#";
 String mqtt_topic_pub="curso_arduino/guillermo";
-String mqtt_client_id=" ESP_";
+String mqtt_client_id=" ESP_PEPE";
+
+static unsigned long lastMsg = 0;
 
 //Wifi
 const String ssid = "Aula 1";
@@ -53,14 +55,13 @@ void loop() {
   }
   client.loop();
 
-  static unsigned long lastMsg = 0;
   unsigned long now = millis();
   //si pasan 10 segundo, envia mensaje
   if(now - lastMsg > 10000){
     lastMsg=now;
     String mensaje="Holiwi dicen los kiwis";
     client.publish(mqtt_topic_pub, mensaje.c_str()); //mensaje.c_str() mensaje a array bytes
-      Serial.println("Mensaje enviado: " + mensaje);
+    Serial.println("Mensaje enviado: " + mensaje);
   }
 }
 
@@ -81,7 +82,7 @@ void reconnect(){
     Serial.println("Reconectando...");
     if(client.connect(mqtt_client_id)){
       Serial.prinlnt("Conectado a MQTT");
-      client.suscribe(mqtt_topic_sub);
+      client.subscribe(mqtt_topic_sub);
     }else{
       Serial.println("Fallo en la conexión");
       Serial.println("Error: " + client.state());
