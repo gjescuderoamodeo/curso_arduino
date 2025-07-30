@@ -44,12 +44,24 @@ void setup() {
 
   //MQTT
   client.setServer(mqtt_server,mqtt_port);
-  client.setCallback(callback());
+  client.setCallback(callback);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if(!client.connected()){
+    reconnect();
+  }
+  client.loop();
 
+  static unsigned long lastMsg = 0;
+  unsigned long now = millis();
+  //si pasan 10 segundo, envia mensaje
+  if(now - lastMsg > 10000){
+    lastMsg=now;
+    String mensaje="Holiwi dicen los kiwis";
+    client.publish(mqtt_topic_pub, mensaje.c_str()); //mensaje.c_str() mensaje a array bytes
+      Serial.println("Mensaje enviado: " + mensaje);
+  }
 }
 
 //funciones
