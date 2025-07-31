@@ -8,6 +8,10 @@ http://192.168.0.25:18083/
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <PubSubClient.h>
+#include <DHT.h>
+
+#define DHTPIN 4
+#define DHTTYPE DHT22
 
 //MQQT
 WiFiClient espClient;
@@ -31,9 +35,15 @@ HTTPClient http;
 
 String servidor = "http://192.168.0.56:5000/datos";
 
+//temperature
+DHT dht(DHTPIN, DHTTYPE);
+float temperature = 0.0;
+float humidity = 0.0
+
 
 void setup() {
   Serial.begin(115200);
+  dht.begin();
   //conexión Wifi
   WiFi.begin(ssid, pwd);
 
@@ -54,8 +64,11 @@ void loop() {
     reconnect();
   }
   client.loop();
+  temperature = dht.readTemperature();
+  humidity = dht.readHumidity();
 
-  if (Serial.available() > 0) {
+
+  /*if (Serial.available() > 0) {
     String mensaje = Serial.readStringUntil('\n');
     mensaje.trim();  // Elimina espacios o saltos de línea
     if (mensaje.length() > 0) {
@@ -63,7 +76,7 @@ void loop() {
       Serial.print("Publicado: ");
       Serial.println(mensaje);
     }
-  }
+  }*/
 }
 
 //funciones
