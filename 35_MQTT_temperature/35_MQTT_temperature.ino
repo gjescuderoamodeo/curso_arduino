@@ -11,7 +11,7 @@ http://192.168.0.25:18083/
 #include <DHT.h>
 
 #define DHTPIN 4
-#define DHTTYPE DHT22
+#define DHTTYPE DHT11
 
 //MQQT
 WiFiClient espClient;
