@@ -22,6 +22,7 @@ int mqtt_port = 1883;
 
 char* mqtt_topic_sub="curso_arduino/#";
 char* mqtt_topic_pub="curso_arduino/guillermo";
+
 char* mqtt_client_id=" ESP_PEPE";
 
 static unsigned long lastMsg = 0;
@@ -38,7 +39,10 @@ String servidor = "http://192.168.0.56:5000/datos";
 //temperature
 DHT dht(DHTPIN, DHTTYPE);
 float temperature = 0.0;
-float humidity = 0.0
+float humidity = 0.0;
+
+char temStr[8];
+char humStr[8];
 
 
 void setup() {
@@ -67,16 +71,16 @@ void loop() {
   temperature = dht.readTemperature();
   humidity = dht.readHumidity();
 
+  dtostrf(temperature, 1,2, temStr);
+  dtostrf(humidity, 1,2, humStr);
 
-  /*if (Serial.available() > 0) {
-    String mensaje = Serial.readStringUntil('\n');
-    mensaje.trim();  // Elimina espacios o saltos de línea
-    if (mensaje.length() > 0) {
-      client.publish(mqtt_topic_pub, mensaje.c_str());
-      Serial.print("Publicado: ");
-      Serial.println(mensaje);
-    }
-  }*/
+  client.publish("curso_arduino/guillermo/temperatura", temStr);
+  client.publish("curso_arduino/guillermo/humedad", humStr);
+
+  Serial.println("Temperatura: " + String(temStr));
+  Serial.println("Humedad: " + String(humStr));
+
+  delay(5000);
 }
 
 //funciones
