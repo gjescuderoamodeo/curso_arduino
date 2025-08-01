@@ -1,10 +1,35 @@
+/**********************************************************************
+  Filename    : Camera Web Server
+  Description : The camera images captured by the ESP32S3 are displayed on the web page.
+  Auther      : www.freenove.com
+  Modification: 2024/07/01
+**********************************************************************/
 #include "esp_camera.h"
 #include <WiFi.h>
 
-#define CAMERA_MODEL_ESP32S3_EYE
+// ===================
+// Select camera model
+// ===================
+//#define CAMERA_MODEL_WROVER_KIT // Has PSRAM
+//#define CAMERA_MODEL_ESP_EYE // Has PSRAM
+#define CAMERA_MODEL_ESP32S3_EYE // Has PSRAM
+//#define CAMERA_MODEL_M5STACK_PSRAM // Has PSRAM
+//#define CAMERA_MODEL_M5STACK_V2_PSRAM // M5Camera version B Has PSRAM
+//#define CAMERA_MODEL_M5STACK_WIDE // Has PSRAM
+//#define CAMERA_MODEL_M5STACK_ESP32CAM // No PSRAM
+//#define CAMERA_MODEL_M5STACK_UNITCAM // No PSRAM
+//#define CAMERA_MODEL_AI_THINKER // Has PSRAM
+//#define CAMERA_MODEL_TTGO_T_JOURNAL // No PSRAM
+// ** Espressif Internal Boards **
+//#define CAMERA_MODEL_ESP32_CAM_BOARD
+//#define CAMERA_MODEL_ESP32S2_CAM_BOARD
+//#define CAMERA_MODEL_ESP32S3_CAM_LCD
 
 #include "camera_pins.h"
 
+// ===========================
+// Enter your WiFi credentials
+// ===========================
 const char* ssid     = "Aula 1";
 const char* password = "Horus.2025";
 
@@ -36,17 +61,20 @@ void setup() {
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 10000000;
   config.frame_size = FRAMESIZE_SVGA;
-  config.pixel_format = PIXFORMAT_JPEG;
+  config.pixel_format = PIXFORMAT_JPEG; // for streaming
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 12;
   config.fb_count = 2;
   
+  // if PSRAM IC present, init with UXGA resolution and higher JPEG quality
+  // for larger pre-allocated frame buffer.
   if(psramFound()){
     config.jpeg_quality = 10;
     config.fb_count = 2;
     config.grab_mode = CAMERA_GRAB_LATEST;
   } else {
+    // Limit the frame size when PSRAM is not available
     config.fb_count = 1;
     config.fb_location = CAMERA_FB_IN_DRAM;
   }
@@ -59,9 +87,10 @@ void setup() {
   }
 
   sensor_t * s = esp_camera_sensor_get();
-  s->set_vflip(s, 1); 
-  s->set_brightness(s, 1);
-  s->set_saturation(s, 0);
+  // initial sensors are flipped vertically and colors are a bit saturated
+  s->set_vflip(s, 1); // flip it back
+  s->set_brightness(s, 1); // up the brightness just a bit
+  s->set_saturation(s, 0); // lower the saturation
   
   WiFi.begin(ssid, password);
   WiFi.setSleep(false);
@@ -77,7 +106,7 @@ void setup() {
   Serial.println("");
   Serial.println("WiFi connected");
 
-  //startCameraServer();
+  startCameraServer();
 
   Serial.print("Camera Ready! Use 'http://");
   Serial.print(WiFi.localIP());
@@ -85,5 +114,6 @@ void setup() {
 }
 
 void loop() {
+  // Do nothing. Everything is done in another task by the web server
   delay(10000);
 }
