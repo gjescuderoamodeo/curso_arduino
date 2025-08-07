@@ -75,15 +75,12 @@ void loop() {
 
 void automatizado(){
   recorrido2();
-  //recorrido3();
-  //recorrido2();
-  //recorrido3();
-  //recorrido2();
+  recorrido3();
+  recorrido2();
+  recorrido3();
 }
 
 void recorrido1(){
-  delay(2000);
-  base.write(0);
   delay(1000);
   arm.write(170);
   delay(1000);
@@ -92,6 +89,26 @@ void recorrido1(){
   gripper.write(165);
   delay(2000);
   gripper.write(38);
+
+  for(int i=90;i>0;i--){
+    base.write(i);
+    delay(30);
+  }
+  delay(500);
+  for(int i=90;i<130;i++){
+    arm.write(i);
+    delay(30);
+  }
+  delay(500);
+  for(int i=90;i<120;i++){
+    forearm.write(i);
+    delay(30);
+  }
+  delay(500);
+  for(int i=30;i<160;i++){
+    gripper.write(i);
+    delay(30);
+  } 
 }
 
 void recorrido2(){
@@ -104,13 +121,25 @@ void recorrido2(){
 }
 
 void recorrido3(){
-  base.write(170);
-  delay(1000);
-  arm.write(148);
-  delay(1000);
-  forearm.write(123);
-  delay(1000);
-  gripper.write(162);
+  for(int i=90;i<170;i++){
+    base.write(i);
+    delay(30);
+  }
+  delay(500);
+  for(int i=90;i<130;i++){
+    arm.write(i);
+    delay(30);
+  }
+  delay(500);
+  for(int i=90;i<120;i++){
+    forearm.write(i);
+    delay(30);
+  }
+  delay(500);
+  for(int i=10;i<160;i++){
+    gripper.write(i);
+    delay(30);
+  } 
   delay(2000);
 }
 
