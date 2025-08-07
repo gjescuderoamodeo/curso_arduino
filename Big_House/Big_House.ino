@@ -74,13 +74,15 @@ void loop() {
 }
 
 void automatizado(){
-  recorrido1();
+  recorrido2();
+  //recorrido3();
   //recorrido2();
   //recorrido3();
   //recorrido2();
 }
 
 void recorrido1(){
+  delay(2000);
   base.write(0);
   delay(1000);
   arm.write(170);
@@ -93,8 +95,9 @@ void recorrido1(){
 }
 
 void recorrido2(){
-  arm.write(10);
-  forearm.write(110);
+  arm.write(90);
+  delay(1000);
+  forearm.write(90);
   delay(1000);
   base.write(90);
   delay(2000);
@@ -104,7 +107,9 @@ void recorrido3(){
   base.write(170);
   delay(1000);
   arm.write(148);
+  delay(1000);
   forearm.write(123);
+  delay(1000);
   gripper.write(162);
   delay(2000);
 }
