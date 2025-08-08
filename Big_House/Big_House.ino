@@ -96,10 +96,10 @@ void recorrido1(){
     delay(10);
   }
   delay(500);
-  for(int i=30;i<160;i++){
-    gripper.write(i);
-    delay(10);
-  } 
+  gripper.write(120);
+  delay(1000);
+  gripper.write(90);
+  delay(2000);
 }
 
 void recorrido2(){
@@ -127,10 +127,9 @@ void recorrido3(){
     delay(10);
   }
   delay(500);
-  for(int i=10;i<160;i++){
-    gripper.write(160);
-    delay(10);
-  } 
+  gripper.write(120);
+  delay(1000);
+  gripper.write(90);
   delay(2000);
 }
 
