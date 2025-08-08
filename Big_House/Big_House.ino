@@ -78,6 +78,7 @@ void automatizado(){
   recorrido3();
   recorrido2();
   recorrido1();
+  recorrido2_1();
 }
 
 void recorrido1(){
@@ -109,6 +110,40 @@ void recorrido2(){
   delay(1000);
   base.write(90);
   delay(2000);
+}
+
+void recorrido2_1(){
+  for(int i=0;i>90;i++){
+    base.write(i);
+    delay(10);
+  }
+  delay(500);
+  for(int i=130;i>90;i--){
+    arm.write(i);
+    delay(10);
+  }
+  delay(500);
+  for(int i=120;i>90;i--){
+    forearm.write(i);
+    delay(10);
+  }
+}
+
+void recorrido2_3(){
+  for(int i=0;i>90;i++){
+    base.write(i);
+    delay(10);
+  }
+  delay(500);
+  for(int i=130;i>90;i--){
+    arm.write(i);
+    delay(10);
+  }
+  delay(500);
+  for(int i=120;i>90;i--){
+    forearm.write(i);
+    delay(10);
+  }
 }
 
 void recorrido3(){
